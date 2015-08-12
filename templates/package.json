@@ -1,0 +1,41 @@
+{
+    "name": "<%= appNameSlug %>",
+    "description": "<%= appDescription %>",
+    "version": "<%= appVersion %>",
+    "homepage": "https://github.com/<%= userName %>/<%= appNameSlug %>",
+    "author": {
+        "name": "<%= authorName %>",
+        "email": "<%= authorEmail %>"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/<%= userName %>/<%= appNameSlug %>.git"
+    },
+    "bugs": {
+        "url": "https://github.com/<%= userName %>/<%= appNameSlug %>/issues"
+    },
+    "licenses": [{
+        "type": "<%= license %>",
+        "url": "https://github.com/<%= userName %>/<%= appNameSlug %>/blob/master/LICENSE"
+    }],
+    "main": "slushfile.js",
+    "engines": {
+        "node": ">= 0.10.26",
+        "npm": ">=1.4.3"
+    },
+    "scripts": {
+        "test": "JASMINE_CONFIG_PATH=test/jasmine.json jasmine",
+        "prepublish": "gulp build",
+        "postpublish": "rm -rf <%= buildFolder %>"
+    },
+    "devDependencies": {
+        "gulp": "^3.6.2",
+        "gulp-streamify": "^1.0.0",
+        "gulp-babel": "^5.2.0",<% if(injectTemplate == 'Yes') { %>
+        "gulp-inject-template": "^0.2.2",<% } %>
+        "jasmine": "^2.3.2"
+    },
+    "keywords": [
+        "es6"
+    ]
+}
